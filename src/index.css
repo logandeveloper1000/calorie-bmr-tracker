@@ -524,3 +524,92 @@ button.link {
 
 /* Optional: disable pointer events while saving to prevent double submits */
 button[disabled] { opacity: 0.8; cursor: not-allowed; }
+
+/* Stack the topbar at <= 537px:
+   Title on its own line, then email + Sign out underneath */
+@media (max-width: 537px) {
+  .topbar {
+    flex-direction: column;     /* put title on top */
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 16px;         /* a touch tighter on small screens */
+  }
+
+  .topbar h1 {
+    margin: 0;                  /* keep the title snug */
+    line-height: 1.2;
+  }
+
+  .topbar .user {
+    width: 100%;                /* take the full row under the title */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .topbar .user .muted {
+    font-size: 14px;
+    overflow: hidden;           /* prevent long emails from breaking layout */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 70%;
+  }
+
+  .topbar .user button {
+    padding: 10px 16px;
+    border-radius: 12px;
+  }
+}
+
+/* ===== Small screens: <= 500px ===== */
+@media (max-width: 500px) {
+  /* Stack all generic 4-col grids (ProfileForm top grid + MealLogger inputs) */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Rows like Activity/BMR + Daily Goal become vertical */
+  .card .row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  /* Inputs + selects easier to tap */
+  input, select {
+    padding: 12px;
+    font-size: 16px; /* avoids iOS zoom */
+  }
+
+  /* Primary buttons full width in forms */
+  .card form > .primary,
+  .btn-full {
+    width: 100%;
+  }
+
+  /* Daily Summary: metrics stack and fill width */
+  .summary-card .row {
+    flex-direction: column;
+  }
+  .metric {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Give the progress bar and sections some room */
+  .summary-card .progress {
+    margin-bottom: 16px; /* previously 30px on desktop */
+  }
+
+  /* Tighten card padding a bit on very small screens */
+  .card {
+    padding: 14px;
+  }
+
+  /* Keep topbar already handled at 537px; just ensure spacing fits */
+  .topbar {
+    gap: 6px;
+  }
+}
