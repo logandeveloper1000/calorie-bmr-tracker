@@ -1,3 +1,4 @@
+// src/components/DailySummary.tsx
 import { useMeals } from "../hooks/useMeals";
 import { useProfile } from "../hooks/useProfile";
 import dayjs from "dayjs";
@@ -10,7 +11,7 @@ export default function DailySummary() {
   const pct = Math.min(100, Math.round(goal ? (total / goal) * 100 : 0));
 
   return (
-    <div className="card">
+    <div className="card summary-card">
       <h2>Today’s Summary</h2>
       <div className="progress">
         <div className="bar" style={{ width: `${pct}%` }} />

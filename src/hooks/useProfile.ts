@@ -1,7 +1,8 @@
+// src/hooks/useProfile.ts
 import { useEffect, useState } from "react";
 import { db } from "../lib/firebase";
 import { doc, onSnapshot, setDoc } from "firebase/firestore";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 import type { Activity, Gender } from "../utils/bmr";
 
 export type Profile = {

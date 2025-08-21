@@ -1,7 +1,8 @@
+// src/hooks/useMeals.ts
 import { useEffect, useMemo, useState } from "react";
 import { collection, onSnapshot, addDoc, deleteDoc, doc, query, orderBy } from "firebase/firestore";
 import { db } from "../lib/firebase";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 
 export type Meal = { id: string; name: string; calories: number; time: string; date: string; };
 

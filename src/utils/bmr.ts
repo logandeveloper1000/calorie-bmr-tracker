@@ -1,4 +1,4 @@
-// Mifflin–St Jeor
+// src/utils/bmr.ts
 export type Gender = "male" | "female";
 export type Activity =
   | "sedentary" | "light" | "moderate" | "active" | "very_active";

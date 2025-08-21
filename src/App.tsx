@@ -1,12 +1,14 @@
+// src/App.tsx
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useAuth } from "./context/AuthContext";
+import type { ReactNode } from "react";
+import { useAuth } from "./context/useAuth";
 import AuthPage from "./pages/AuthPage";
 import Dashboard from "./pages/Dashboard";
 
-function Protected({ children }: { children: JSX.Element }) {
-  const { user, loading } = useAuth();
+function Protected({ children }: { children: ReactNode }) {
+  const { user, loading } = useAuth();   // ← use `user`, not `currentUser`
   if (loading) return <div className="center">Loading…</div>;
-  return user ? children : <Navigate to="/auth" replace />;
+  return user ? <>{children}</> : <Navigate to="/auth" replace />;
 }
 
 export default function App() {

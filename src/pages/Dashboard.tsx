@@ -1,4 +1,5 @@
-import { useAuth } from "../context/AuthContext";
+// src/pages/Dashboard.tsx
+import { useAuth } from "../context/useAuth";
 import ProfileForm from "../components/ProfileForm";
 import MealLogger from "../components/MealLogger";
 import DailySummary from "../components/DailySummary";
@@ -16,10 +17,16 @@ export default function Dashboard() {
         </div>
       </header>
 
-      <main className="grid-2">
-        <ProfileForm />
-        <DailySummary />
-        <MealLogger />
+      <main className="dashboard-main">
+        <div className="dashboard-profile">
+          <ProfileForm />
+        </div>
+        <div className="dashboard-summary">
+          <DailySummary />
+        </div>
+        <div className="dashboard-meals">
+          <MealLogger />
+        </div>
       </main>
     </div>
   );
