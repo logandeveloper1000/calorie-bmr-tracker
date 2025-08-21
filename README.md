@@ -1,69 +1,78 @@
-# React + TypeScript + Vite
+# Calorie & BMR Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive web application to calculate and track your Basal Metabolic
+Rate (BMR), daily calorie goals, and log meals.\
+Built with React, TypeScript, Firebase, and Vite.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can try the live version of the app here:\
+<https://calorie-bmr-tracker.netlify.app>
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-   User authentication (Firebase)
+-   Profile setup with weight, height, age, gender, and activity level
+-   Automatic BMR and TDEE calculation
+-   Customizable daily calorie goal
+-   Meal logging with calories and timestamps
+-   Daily summary with progress tracking
+-   Responsive design for mobile and desktop
+-   Toast notifications for actions
+-   Loading spinners and modal feedback
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+-   **React + TypeScript** -- Frontend framework and typing
+-   **Vite** -- Build tool for fast development
+-   **Firebase** -- Authentication and Firestore database
+-   **CSS** -- Custom styling with responsive breakpoints
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Installation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1.  Clone the repository:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    ``` bash
+    git clone https://github.com/logandeveloper1000/calorie-bmr-tracker.git
+    cd calorie-bmr-tracker
+    ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2.  Install dependencies:
+
+    ``` bash
+    npm install
+    ```
+
+3.  Create a `.env` file in the root directory and configure your
+    Firebase credentials:
+
+    ``` env
+    VITE_API_KEY=your_firebase_api_key
+    VITE_AUTH_DOMAIN=your_firebase_auth_domain
+    VITE_PROJECT_ID=your_firebase_project_id
+    VITE_STORAGE_BUCKET=your_firebase_storage_bucket
+    VITE_MESSAGING_SENDER_ID=your_firebase_sender_id
+    VITE_APP_ID=your_firebase_app_id
+    ```
+
+4.  Start the development server:
+
+    ``` bash
+    npm run dev
+    ```
+
+5.  Open the app in your browser at `http://localhost:5173`.
+
+## Deployment
+
+This project is deployed with **Netlify**.\
+To deploy your own version: - Push your repository to GitHub - Connect
+it with Netlify - Add your environment variables in the Netlify
+dashboard
+
+The live version is available here:\
+<https://calorie-bmr-tracker.netlify.app>
+
+## License
+
+This project is licensed under the MIT License.
